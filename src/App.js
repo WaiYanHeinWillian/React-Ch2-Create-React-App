@@ -1,45 +1,22 @@
+import React, { useState } from 'react'
 
-import './App.css';
-import { useState } from 'react';
+export default function () {
 
-function App() {
+  let [count,setCount]=useState(0);
 
-  let [name,setName]=useState('Wai Yan Hein');
-  let [posts,setPosts]=useState([
-    {
-      id:1,
-      title:'First Post'
-    },
-    {
-      id:2,
-      title:'Second Post'
-    },
-    {
-      id:3,
-      title:'Third Post'
-    }
-  ]);
-
-
-  let changename=()=>{
-    setName('Aung Aung Tun');
-    console.log(name);
+  let Increcount=()=>{
+    setCount((preState)=>preState+1);
+    setCount((preState)=>preState+1);
+    setCount((preState)=>preState+1);
+    setCount((preState)=>preState+1);
+    setCount((preState)=>preState+1);
   }
 
   return (
-    <div className='app'>
-      <h1>Hello {name}</h1>
-      <button onClick={changename}>change name</button>
-        
-      <h1>Posts</h1>
-      <ul>
-        {posts.map((post)=>(
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
-
+    <div>
+      <h1>Counter</h1>
+      <h3>Count - {count}</h3>
+      <button onClick={Increcount}>Increment</button>
     </div>
-  );
+  )
 }
-
-export default App;
