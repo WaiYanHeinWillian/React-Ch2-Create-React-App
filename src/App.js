@@ -37,13 +37,17 @@ console.log(posts);
         
       <h1>Posts</h1>
       <ul>
-        {posts.map((post)=>(
+
+        {!!posts.length && posts.map((post)=>(
           <li key={post.id}>
             {post.title}
             
           <button onClick={()=>delePost(post.id)}>Delete</button>
           </li>
         ))}
+
+        {!posts.length && <p>No post available</p>}
+
       </ul>
 
     </div>
