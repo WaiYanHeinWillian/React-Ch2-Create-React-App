@@ -7,6 +7,7 @@ import Modal from './components/Modal';
 
 function App() {
 
+  let [showModal,setShowModal]=useState(false);
   
   let [posts,setPosts]=useState([
     {
@@ -26,14 +27,16 @@ function App() {
 
   return (
     <>
-      <Navbar/>
+      <Navbar  setShowModal={setShowModal}/>
 
       <PostsList posts={posts}/>
 
-      <Modal>
+      {showModal && <Modal>
         <h1>Zoom class is available now</h1>
         <p>Feel free to <a href=''>join</a></p>
+        <button onClick={()=>setShowModal(false)}>Close</button>
       </Modal>
+      }
       
     </>
   );
