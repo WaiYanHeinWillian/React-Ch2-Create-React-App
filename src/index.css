@@ -1,8 +1,8 @@
 body {
-  background-color: lightblue;
+    margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+    margin: 0;
 }
+
