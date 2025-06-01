@@ -31,7 +31,7 @@ function App() {
 
       <PostsList posts={posts}/>
 
-      {showModal && <Modal>
+      {showModal && <Modal danger>
         <h1>Zoom class is available now</h1>
         <p>Feel free to <a href=''>join</a></p>
         <button onClick={()=>setShowModal(false)}>Close</button>
