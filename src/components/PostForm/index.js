@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import './index.css';
 
 export default function Index({addPost}) {
 
-    let [title,setTitle]=useState("");
+
+    let title=useRef();
 
     let resetForm=()=>{
-      setTitle('');
+      title.current.value="";
       console.log("update rest");
     }
 
@@ -15,15 +16,12 @@ export default function Index({addPost}) {
 
       let post={
         id:Math.floor(Math.random()*10000),
-        title:title
+        title:title.current.value
       }
 
       resetForm();
 
       addPost(post);
-
-      
-
     }
 
   return (
@@ -31,7 +29,7 @@ export default function Index({addPost}) {
         <h1>Create Post</h1>
         <div className='form-control'>
             <label htmlFor=''>Title</label>
-            <input type='text' onChange={(e)=>setTitle(e.target.value)} value={title}></input>
+            <input type='text' ref={title}  ></input>
         </div>
 
         <div className='form-control'>
@@ -40,3 +38,4 @@ export default function Index({addPost}) {
     </form>
   )
 }
+
