@@ -19,11 +19,13 @@ function App() {
       id:2,
       title:'Second Post'
     },
-    {
-      id:3,
-      title:'Third Post'
-    }
+    
   ]);
+
+  let addPost=(post)=>{
+    setPosts((prevState=>[...prevState,post]));
+    setShowModal(false);
+  }
   
 
   return (
@@ -33,7 +35,7 @@ function App() {
       <PostsList posts={posts}/>
 
       {showModal && <Modal setShowModal={setShowModal}>
-          <PostFrom/>            
+          <PostFrom addPost={addPost}/>            
       </Modal>
       }
       
